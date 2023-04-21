@@ -9,7 +9,7 @@ export class BtnComponent {
   @Input() typeBtn: 'button' | 'reset' | 'submit' = 'button'
   @Input() color: 'primary' | 'success' | 'danger' = 'danger'
 
-  get colors() { // Al ser un getters se ejecuta inmediatamente
+  get colors() { // Al ser un getters se ejecuta inmediatamente cuando la capa se carga
     return {
       'bg-green-700': this.color === 'success',
       'hover:bg-green-800': this.color === 'success',
