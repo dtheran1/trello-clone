@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 import { ToDo } from 'src/app/models/todo.model';
 @Component({
   selector: 'app-board',
@@ -22,16 +22,27 @@ export class BoardComponent implements OnInit {
   todos: ToDo[] = [
     {
       id: '1',
-      title: 'Todo 1'
-    },
-    {
-      id: '2',
-      title: 'Todo 2'
+      title: 'Keep learning'
     },
     {
       id: '3',
-      title: 'Todo 3'
+      title: 'Finish the Angular course'
     }
+  ]
+
+
+  doing: ToDo[] = [
+    {
+      id: '2',
+      title: 'Buy a new pc'
+    },
+  ]
+
+  done: ToDo[] = [
+    {
+      id: '4',
+      title: 'Clean a bedroom'
+    },
   ]
   constructor () {}
 
@@ -39,7 +50,17 @@ export class BoardComponent implements OnInit {
 
   }
 
-  drop(e: CdkDragDrop<any[]>) {
-    moveItemInArray(this.todos, e.previousIndex, e.currentIndex)
+  drop(e: CdkDragDrop<ToDo[]>) {
+    if (e.previousContainer === e.container) {
+      moveItemInArray(e.container.data, e.previousIndex, e.currentIndex)
+    } else {
+      transferArrayItem(
+        e.previousContainer.data,
+        e.container.data,
+        e.previousIndex,
+        e.currentIndex
+      )
+    }
+
   }
 }
