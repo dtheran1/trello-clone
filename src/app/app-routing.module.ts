@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { BoardsComponent } from './pages/boards/boards.component';
 import { BoardComponent } from './pages/board/board.component';
 import { ScrollComponent } from './pages/scroll/scroll.component';
+import { TableComponent } from './pages/table/table.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,11 @@ const routes: Routes = [
   {
     path: 'scroll',
     component: ScrollComponent
-  }
+  },
+  {
+    path: 'table',
+    component: TableComponent
+  },
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
