@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +8,7 @@ import { OverlayModule } from '@angular/cdk/overlay'
 import { DialogModule } from '@angular/cdk/dialog'
 import { CdkAccordionModule } from '@angular/cdk/accordion'
 import { DragDropModule } from '@angular/cdk/drag-drop'
+import { ScrollingModule } from '@angular/cdk/scrolling'
 
 import { LoginComponent } from './pages/login/login.component';
 import { BtnComponent } from './components/btn/btn.component';
@@ -15,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BoardComponent } from './pages/board/board.component';
 import { TodoModalComponent } from './components/todo-modal/todo-modal.component';
+import { ScrollComponent } from './pages/scroll/scroll.component';
 
 
 
@@ -26,7 +29,8 @@ import { TodoModalComponent } from './components/todo-modal/todo-modal.component
     BoardsComponent,
     NavbarComponent,
     BoardComponent,
-    TodoModalComponent
+    TodoModalComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { TodoModalComponent } from './components/todo-modal/todo-modal.component
     FontAwesomeModule,
     CdkAccordionModule,
     DragDropModule,
-    DialogModule
+    DialogModule,
+    HttpClientModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
